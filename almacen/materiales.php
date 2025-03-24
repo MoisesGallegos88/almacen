@@ -22,22 +22,15 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Gestor de Materiales</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 1200px; margin: 20px auto; padding: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background-color: #4CAF50; color: white; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-        .user-info { position: absolute; top: 20px; right: 20px; }
-        .logout { color: #dc3545; text-decoration: none; }
-        .acciones a { margin-right: 10px; }
-    </style>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <div class="user-info">
-        Bienvenido, <?= htmlspecialchars($_SESSION['username']) ?>! 
-        <a href="logout.php" class="logout">Cerrar Sesión</a>
-    </div>
+    <?php include 'cabecera.php'; ?>
+    
+    
+    <main class="contenido-principal">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar por ID, nombre o material...">
 
     <h2>Materiales Registrados</h2>
     
@@ -63,7 +56,7 @@ try {
                     <td><?= number_format($material['maximo_g'], 2) ?></td>
                     <td class="acciones">
                         <a href="editar_material.php?id=<?= $material['id'] ?>">Editar</a>
-                        <a href="eliminar_material.php?id=<?= $material['id'] ?>" onclick="return confirm('¿Eliminar este material?')">Eliminar</a>
+                          <!-- <a href="eliminar_material.php?id=<?= $material['id'] ?>" onclick="return confirm('¿Eliminar este material?')">Eliminar</a>  -->
                     </td>
                 </tr>
                 <?php endforeach; ?>

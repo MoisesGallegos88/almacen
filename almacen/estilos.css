@@ -1,0 +1,133 @@
+/* estilos.css */
+:root {
+    --color-primario: #2c3e50;
+    --color-secundario: #3498db;
+    --color-texto: #ffffff;
+    --color-exito: #28a745;
+    --color-error: #dc3545;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding-top: 60px;
+    background-color: #f4f6f8;
+}
+
+.cabecera {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--color-primario);
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--color-texto);
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navegacion {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.navegacion a {
+    color: var(--color-texto);
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.navegacion a:hover {
+    background: var(--color-secundario);
+    transform: translateY(-2px);
+}
+
+.usuario-info {
+    color: var(--color-texto);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contenido-principal {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Estilos específicos para buscar_articulos.php */
+.search-container { 
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#searchInput {
+    width: 60%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+th {
+    background-color: var(--color-primario);
+    color: white;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f8f9fa;
+}
+
+.btn-estado {
+    padding: 6px 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    min-width: 80px;
+    font-weight: 500;
+    transition: transform 0.2s;
+}
+
+.en-stock { 
+    background-color: var(--color-exito);
+    color: white;
+}
+
+.vendido { 
+    background-color: var(--color-error);
+    color: white;
+}

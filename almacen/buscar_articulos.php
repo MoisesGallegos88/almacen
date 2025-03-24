@@ -30,53 +30,28 @@ try {
 } catch(PDOException $e) {
     die("Error: " . $e->getMessage());
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Buscador de Artículos</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 1200px; margin: 20px auto; padding: 20px; }
-        .search-container { margin-bottom: 20px; }
-        #searchInput { width: 300px; padding: 10px; font-size: 16px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background-color: #4CAF50; color: white; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-        .user-info { position: absolute; top: 20px; right: 20px; }
-        .logout { color: #dc3545; text-decoration: none; }
-
-
-
-        /* Agregar al CSS */
-.btn-estado {
-    padding: 5px 15px;
-    border-radius: 15px;
-    text-decoration: none;
-    color: white;
-    display: inline-block;
-    text-align: center;
-    min-width: 80px;
-}
-
-.en-stock { background-color: #28a745; }
-.vendido { background-color: #dc3545; }
-
-
-    </style>
+    <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
-    <div class="user-info">
-        Bienvenido, <?= htmlspecialchars($_SESSION['username']) ?>! 
-        <a href="logout.php" class="logout">Cerrar Sesión</a>
-    </div>
+<?php include 'cabecera.php'; ?>
+<title>Buscador de Artículos</title>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Buscar por ID, nombre o material...">
-    </div>
-
+<main class="contenido-principal">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar por ID, nombre o material...">
+        </div>
 
     <div id="results">
         <table>

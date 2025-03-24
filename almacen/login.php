@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errores)) {
         try {
             // Buscar usuario en la base de datos
-            $stmt = $conn->prepare("SELECT id, nombre_usuario, contrasena FROM usuarios WHERE nombre_usuario = :username");
+            $stmt = $conn->prepare("SELECT id, nombre_usuario, contrasena, rol FROM usuarios WHERE nombre_usuario = :username");            
             $stmt->execute([':username' => $username]);
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -25,6 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_id'] = $usuario['id'];
                 $_SESSION['username'] = $usuario['nombre_usuario'];
                 $_SESSION['logged_in'] = true;
+                $_SESSION['rol'] = $usuario['rol']; // Añadir esta línea
+
 
                 // Redireccionar a área protegida
                 header("Location: index.php");
@@ -82,6 +84,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Acceder</button>
     </form>
     
-    <p>¿No tienes cuenta? <a href="registro.php">Regístrate aquí</a></p>
 </body>
 </html>

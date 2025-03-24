@@ -1,0 +1,17 @@
+<?php
+session_start();
+include 'conexion_db.php';
+
+// Solo accesible para admins
+if (!isset($_SESSION['logged_in']) || $_SESSION['rol'] !== 'admin') {
+    header("Location: login.php");
+    exit();
+}
+$sql = "INSERT INTO usuarios (nombre_usuario, contrasena, email, rol) 
+        VALUES (:username, :password, :email, :rol)";
+// Añadir campo rol en el formulario
+<select name="rol" required>
+    <option value="admin">Administrador</option>
+    <option value="editor">Editor</option>
+    <option value="lector">Lector</option>
+</select>
